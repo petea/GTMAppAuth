@@ -22,23 +22,31 @@ requests with AppAuth.
                    }
 
   s.source       = { :git => "https://github.com/google/GTMAppAuth.git", :tag => s.version }
-
-  s.source_files = "Source/*.{h,m}"
+  s.prefix_header_file = false
+  s.source_files = "GTMAppAuth/Sources/*.{h,m}"
+  s.public_header_files = "GTMAppAuth/Sources/Public/GTMAppAuth/*.h"
   s.requires_arc = true
 
-  s.ios.source_files = "Source/GTMOAuth2KeychainCompatibility/*.{h,m}",
-                       "Source/iOS/**/*.{h,m}"
+  s.ios.source_files = "GTMAppAuth/Sources/GTMOAuth2KeychainCompatibility/*.{h,m}",
+                       "GTMAppAuth/Sources/iOS/**/*.{h,m}"
+  s.ios.public_header_files = "GTMAppAuth/Sources/Public/GTMAppAuth/GTMOAuth2KeychainCompatibility/*.h"
   s.ios.deployment_target = "7.0"
 
-  s.osx.source_files = "Source/GTMOAuth2KeychainCompatibility/*.{h,m}",
-                       "Source/macOS/**/*.{h,m}"
+  s.osx.source_files = "GTMAppAuth/Sources/GTMOAuth2KeychainCompatibility/*.{h,m}",
+                       "GTMAppAuth/Sources/macOS/**/*.{h,m}"
+  s.osx.public_header_files = "GTMAppAuth/Sources/Public/GTMAppAuth/GTMOAuth2KeychainCompatibility/*.h"
   s.osx.deployment_target = '10.11'
 
-  s.tvos.source_files = "Source/iOS/GTMKeychain_iOS.m"
+  s.tvos.source_files = "GTMAppAuth/Sources/iOS/GTMKeychain_iOS.m"
   s.tvos.deployment_target = '9.0'
 
-  s.watchos.source_files = "Source/iOS/GTMKeychain_iOS.m"
+  s.watchos.source_files = "GTMAppAuth/Sources/iOS/GTMKeychain_iOS.m"
   s.watchos.deployment_target = '6.0'
+
+  s.pod_target_xcconfig = {
+    'GCC_C_LANGUAGE_STANDARD' => 'c99',
+    'HEADER_SEARCH_PATHS' => '"${PODS_TARGET_SRCROOT}"'
+  }
 
   s.framework = 'Security'
   s.dependency 'GTMSessionFetcher', '~> 1.4'

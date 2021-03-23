@@ -16,15 +16,15 @@
         limitations under the License.
  */
 
-#import "GTMAppAuthFetcherAuthorization.h"
-#import "GTMAppAuthFetcherAuthorization+Keychain.h"
+#import "GTMAppAuth/Sources/Public/GTMAppAuth/GTMAppAuthFetcherAuthorization.h"
+#import "GTMAppAuth/Sources/Public/GTMAppAuth/GTMAppAuthFetcherAuthorization+Keychain.h"
 
 #if TARGET_OS_TV
 #elif TARGET_OS_WATCH
 #elif TARGET_OS_IOS
-#import "GTMOAuth2KeychainCompatibility.h"
+#import "GTMAppAuth/Sources/Public/GTMAppAuth/GTMOAuth2KeychainCompatibility/GTMOAuth2KeychainCompatibility.h"
 #elif TARGET_OS_MAC
-#import "GTMOAuth2KeychainCompatibility.h"
+#import "GTMAppAuth/Sources/Public/GTMAppAuth/GTMOAuth2KeychainCompatibility/GTMOAuth2KeychainCompatibility.h"
 #else
 #warn "Platform Undefined"
 #endif

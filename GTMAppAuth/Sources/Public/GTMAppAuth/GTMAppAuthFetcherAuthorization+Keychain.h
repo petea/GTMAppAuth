@@ -16,7 +16,7 @@
         limitations under the License.
  */
 
-#import "GTMAppAuthFetcherAuthorization.h"
+#import "GTMAppAuth/Sources/Public/GTMAppAuth/GTMAppAuthFetcherAuthorization.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
